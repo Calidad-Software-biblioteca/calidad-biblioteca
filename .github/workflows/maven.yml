@@ -1,0 +1,33 @@
+name: Java CI with Maven
+on:
+  push:
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+      - name: Build and test
+        run: mvn -B clean verify
+      - name: Check JaCoCo report
+        run: |
+          echo "Contenido de target/site/jacoco:"
+          ls -lh target/site/jacoco/
+          echo "Comprobando jacoco.xml..."
+          test -f target/site/jacoco/jacoco.xml
+          echo "jacoco.xml encontrado correctamente."
+      - name: SonarQube Cloud analysis
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: mvn -B sonar:sonar
