@@ -29,11 +29,6 @@ public class LibroServiceSteps extends CucumberSpringConfiguration {
         libroResultado = libroService.crearLibro(titulo, autor);
     }
 
-    @Cuando("ejecuto crearLibro2 con título {string} y autor {string}")
-    public void ejecutoCrearLibro2(String titulo, String autor) {
-        libroResultado = libroService.crearLibro2(titulo, autor);
-    }
-
     @Entonces("el libro resultante no es nulo y tiene título {string}")
     public void verificarLibroCreado(String titulo) {
         assertNotNull(libroResultado);
@@ -49,17 +44,6 @@ public class LibroServiceSteps extends CucumberSpringConfiguration {
             String t = titulo.isEmpty() ? null : titulo;
             String a = autor.isEmpty() ? null : autor;
             libroService.crearLibro(t, a);
-        } catch (Exception e) {
-            excepcionCapturada = e;
-        }
-    }
-
-    @Cuando("intento crearLibro2 con título {string} y autor {string}")
-    public void intentoCrearLibro2(String titulo, String autor) {
-        try {
-            String t = titulo.isEmpty() ? null : titulo;
-            String a = autor.isEmpty() ? null : autor;
-            libroService.crearLibro2(t, a);
         } catch (Exception e) {
             excepcionCapturada = e;
         }

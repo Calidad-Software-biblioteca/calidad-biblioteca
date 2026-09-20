@@ -143,27 +143,27 @@ public class PrestamoServiceSteps extends CucumberSpringConfiguration {
     }
 
     @Cuando("calculo el recargo A para un préstamo nulo")
-    public void calcularRecargoANulo() {
-        resultadoCalculo = prestamoService.calcularRecargoA(null);
+    public void calcularRecargoNulo() {
+        resultadoCalculo = prestamoService.calcularRecargo(null);
     }
 
     @Cuando("calculo el recargo A para un préstamo de hace {int} días")
-    public void calcularRecargoAConDias(int dias) {
+    public void calcularRecargoConDias(int dias) {
         Prestamo p = new Prestamo();
         p.setFechaPrestamo(LocalDate.now().minusDays(dias));
-        resultadoCalculo = prestamoService.calcularRecargoA(p);
+        resultadoCalculo = prestamoService.calcularRecargo(p);
     }
 
     @Cuando("calculo el recargo B para un préstamo nulo")
     public void calcularRecargoBNulo() {
-        resultadoCalculo = prestamoService.calcularRecargoB(null);
+        resultadoCalculo = prestamoService.calcularRecargo(null);
     }
 
     @Cuando("calculo el recargo B para un préstamo de hace {int} días")
     public void calcularRecargoBConDias(int dias) {
         Prestamo p = new Prestamo();
         p.setFechaPrestamo(LocalDate.now().minusDays(dias));
-        resultadoCalculo = prestamoService.calcularRecargoB(p);
+        resultadoCalculo = prestamoService.calcularRecargo(p);
     }
 
     @Cuando("intento devolver el préstamo con id {long}")
@@ -183,7 +183,7 @@ public class PrestamoServiceSteps extends CucumberSpringConfiguration {
     @Cuando("intento devolver un préstamo antiguo con id {long}")
     public void intentoDevolverLibroAntiguo(Long id) {
         try {
-            prestamoService.devolverLibroAntiguo(id);
+            prestamoService.devolverLibro(id);
         } catch (Exception e) {
             excepcionCapturada = e;
         }
@@ -191,7 +191,7 @@ public class PrestamoServiceSteps extends CucumberSpringConfiguration {
 
     @Cuando("devuelvo el préstamo antiguo con id {long}")
     public void devolverLibroAntiguoExito(Long id) {
-        prestamoService.devolverLibroAntiguo(id);
+        prestamoService.devolverLibro(id);
     }
 
     @Cuando("calculo la multa para un préstamo nulo")
