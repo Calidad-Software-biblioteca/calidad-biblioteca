@@ -4,19 +4,19 @@ Característica: Cobertura de LibroService
   # --- CREAR LIBRO ---
 
   #--  Ejercicio 1 (Crear un libro exitosamente con crearLibro)
-  # Escenario:
-  #  Cuando
-  #  Entonces
+  Escenario: Crear un libro exitosamente con crearLibro
+    Cuando ejecuto crearLibro con título "El Aleph" y autor "Jorge Luis Borges"
+    Entonces el libro resultante no es nulo y tiene título "El Aleph"
 
   #-- Ejercicio 2 (Mostrar un Error cuando el titulo está en blanco (isBlank())
-  # Escenario:
-  #  Cuando
-  #  Entonces
+  Escenario: Error en crearLibro cuando el título está en blanco
+    Cuando intento crearLibro con título "   " y autor "Jorge Luis Borges"
+    Entonces se lanza una excepción con mensaje "El título es obligatorio"
 
   #-- Ejercicio 3 (Mostrar un Error cuando el titulo es nulo isNull())
-  # Escenario:
-  #  Cuando
-  #  Entonces
+  Escenario: Error en crearLibro cuando el título es nulo
+    Cuando intento crearLibro con título "" y autor "Jorge Luis Borges"
+    Entonces se lanza una excepción con mensaje "El título es obligatorio"
 
   Escenario: Error en crearLibro cuando el autor es nulo
     Cuando intento crearLibro con título "El Aleph" y autor nulo
