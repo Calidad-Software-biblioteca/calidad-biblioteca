@@ -140,51 +140,52 @@ public class PrestamoService {
     }
 
 
-   public double calcularMulta(Prestamo prestamo) {
+    public double calcularMulta(Prestamo prestamo) {
 
-    if (prestamo == null) {
-        return 0;
-    }
+        if (prestamo == null) {
+            return 0;
+        }
 
-    if (!prestamo.isDevuelto()) {
+        if (!prestamo.isDevuelto()) {
+
+            long dias = ChronoUnit.DAYS.between(
+                    prestamo.getFechaPrestamo(),
+                    LocalDate.now());
+
+            if (dias <= 7) {
+                return 0;
+            }
+
+            if (dias <= 14) {
+                return (dias - 7) * 100;
+            }
+
+            if (dias <= 30) {
+                return (dias - 7) * 200;
+            }
+
+            return (dias - 7) * 500;
+        }
 
         long dias = ChronoUnit.DAYS.between(
                 prestamo.getFechaPrestamo(),
-                LocalDate.now());
+                prestamo.getFechaDevolucion());
 
+        // DUPLICACIÓN INTENCIONAL
         if (dias <= 7) {
             return 0;
         }
 
         if (dias <= 14) {
-            return (dias - 7) * 1000;
+            return (dias - 7) * 100;
         }
 
         if (dias <= 30) {
-            return (dias - 7) * 2000;
+            return (dias - 7) * 200;
         }
 
-        return (dias - 7) * 5000;
+        return (dias - 7) * 500;
     }
-
-    long dias = ChronoUnit.DAYS.between(
-            prestamo.getFechaPrestamo(),
-            prestamo.getFechaDevolucion());
-
-    if (dias <= 7) {
-        return 0;
-    }
-
-    if (dias <= 14) {
-        return (dias - 7) * 1000;
-    }
-
-    if (dias <= 30) {
-        return (dias - 7) * 2000;
-    }
-
-    return (dias - 7) * 5000;
-}
 
     public List<Prestamo> listarPrestamos() {
         return prestamoRepository.findAll();
