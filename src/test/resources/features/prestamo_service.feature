@@ -44,76 +44,76 @@ Característica: Cobertura PrestamoService
   # --- CALCULAR RECARGO A ---
   Escenario: Calcular recargo A para préstamo nulo
     Cuando calculo el recargo A para un préstamo nulo
-    Entonces el recargo A devuelto es 0.0
+    Entonces el recargo A devuelto es 0
 
   Escenario: Calcular recargo A para tramo 0 a 7 días
     Cuando calculo el recargo A para un préstamo de hace 5 días
-    Entonces el recargo A devuelto es 0.0
+    Entonces el recargo A devuelto es 0
 
   Escenario: Calcular recargo A para tramo 8 a 14 días
     Cuando calculo el recargo A para un préstamo de hace 10 días
-    Entonces el recargo A devuelto es 300.0
+    Entonces el recargo A devuelto es 300
 
   Escenario: Calcular recargo A para tramo 15 a 21 días
     Cuando calculo el recargo A para un préstamo de hace 20 días
-    Entonces el recargo A devuelto es 1950.0
+    Entonces el recargo A devuelto es 1950
 
   Escenario: Calcular recargo A para tramo 22 a 30 días
     Cuando calculo el recargo A para un préstamo de hace 25 días
-    Entonces el recargo A devuelto es 3600.0
+    Entonces el recargo A devuelto es 3600
 
   Escenario: Calcular recargo A para tramo 31 a 45 días
     Cuando calculo el recargo A para un préstamo de hace 40 días
-    Entonces el recargo A devuelto es 9900.0
+    Entonces el recargo A devuelto es 9900
 
   Escenario: Calcular recargo A para tramo 46 a 60 días
     Cuando calculo el recargo A para un préstamo de hace 50 días
-    Entonces el recargo A devuelto es 17200.0
+    Entonces el recargo A devuelto es 17200
 
   Escenario: Calcular recargo A para tramo 61 a 90 días
     Cuando calculo el recargo A para un préstamo de hace 70 días
-    Entonces el recargo A devuelto es 31500.0
+    Entonces el recargo A devuelto es 31500
 
   Escenario: Calcular recargo A para tramo mayor a 90 días
     Cuando calculo el recargo A para un préstamo de hace 100 días
-    Entonces el recargo A devuelto es 69750.0
+    Entonces el recargo A devuelto es 69750
 
   # --- CALCULAR RECARGO B ---
   Escenario: Calcular recargo B para préstamo nulo
     Cuando calculo el recargo B para un préstamo nulo
-    Entonces el recargo B devuelto es 0.0
+    Entonces el recargo B devuelto es 0
 
   Escenario: Calcular recargo B para tramo 0 a 7 días
     Cuando calculo el recargo B para un préstamo de hace 5 días
-    Entonces el recargo B devuelto es 0.0
+    Entonces el recargo B devuelto es 0
 
   Escenario: Calcular recargo B para tramo 8 a 14 días
     Cuando calculo el recargo B para un préstamo de hace 10 días
-    Entonces el recargo B devuelto es 300.0
+    Entonces el recargo B devuelto es 300
 
   Escenario: Calcular recargo B para tramo 15 a 21 días
     Cuando calculo el recargo B para un préstamo de hace 20 días
-    Entonces el recargo B devuelto es 1950.0
+    Entonces el recargo B devuelto es 1950
 
   Escenario: Calcular recargo B para tramo 22 a 30 días
     Cuando calculo el recargo B para un préstamo de hace 25 días
-    Entonces el recargo B devuelto es 3600.0
+    Entonces el recargo B devuelto es 3600
 
   Escenario: Calcular recargo B para tramo 31 a 45 días
     Cuando calculo el recargo B para un préstamo de hace 40 días
-    Entonces el recargo B devuelto es 9900.0
+    Entonces el recargo B devuelto es 9900
 
   Escenario: Calcular recargo B para tramo 46 a 60 días
     Cuando calculo el recargo B para un préstamo de hace 50 días
-    Entonces el recargo B devuelto es 17200.0
+    Entonces el recargo B devuelto es 17200
 
   Escenario: Calcular recargo B para tramo 61 a 90 días
     Cuando calculo el recargo B para un préstamo de hace 70 días
-    Entonces el recargo B devuelto es 31500.0
+    Entonces el recargo B devuelto es 31500
 
   Escenario: Calcular recargo B para tramo mayor a 90 días
     Cuando calculo el recargo B para un préstamo de hace 100 días
-    Entonces el recargo B devuelto es 69750.0
+    Entonces el recargo B devuelto es 69750
 
   # --- DEVOLVER LIBRO Y DEVOLVER LIBRO ANTIGUO ---
   Escenario: Error al devolver préstamo inexistente
@@ -147,41 +147,41 @@ Característica: Cobertura PrestamoService
   # --- CALCULAR MULTA (NO DEVUELTO Y DEVUELTO) ---
   Escenario: Calcular multa para préstamo nulo
     Cuando calculo la multa para un préstamo nulo
-    Entonces la multa devuelta es 0.0
+    Entonces la multa devuelta es 0
 
   # No devuelto (isDevuelto() = false)
   Escenario: Calcular multa no devuelto tramo 0 a 7 días
     Cuando calculo la multa no devuelto de hace 5 días
-    Entonces la multa devuelta es 0.0
+    Entonces la multa devuelta es 0
 
   Escenario: Calcular multa no devuelto tramo 8 a 14 días
     Cuando calculo la multa no devuelto de hace 10 días
-    Entonces la multa devuelta es 300.0
+    Entonces la multa devuelta es 300
 
   Escenario: Calcular multa no devuelto tramo 15 a 30 días
     Cuando calculo la multa no devuelto de hace 20 días
-    Entonces la multa devuelta es 2600.0
+    Entonces la multa devuelta es 2600
 
   Escenario: Calcular multa no devuelto mayor a 30 días
     Cuando calculo la multa no devuelto de hace 40 días
-    Entonces la multa devuelta es 16500.0
+    Entonces la multa devuelta es 16500
 
   # Devuelto (isDevuelto() = true)
   Escenario: Calcular multa devuelto tramo 0 a 7 días
     Cuando calculo la multa devuelto con diferencia de 5 días
-    Entonces la multa devuelta es 0.0
+    Entonces la multa devuelta es 0
 
   Escenario: Calcular multa devuelto tramo 8 a 14 días
     Cuando calculo la multa devuelto con diferencia de 10 días
-    Entonces la multa devuelta es 300.0
+    Entonces la multa devuelta es 300
 
   Escenario: Calcular multa devuelto tramo 15 a 30 días
     Cuando calculo la multa devuelto con diferencia de 20 días
-    Entonces la multa devuelta es 2600.0
+    Entonces la multa devuelta es 2600
 
   Escenario: Calcular multa devuelto mayor a 30 días
     Cuando calculo la multa devuelto con diferencia de 40 días
-    Entonces la multa devuelta es 16500.0
+    Entonces la multa devuelta es 16500
 
   # --- LISTAR PRÉSTAMOS ---
   Escenario: Listar todos los préstamos
